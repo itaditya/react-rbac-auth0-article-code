@@ -37,3 +37,36 @@ Next, set up an Auth0 Application so Auth0 can interface with the React app.
 ```
 $ npm start
 ```
+
+## Auth0 Set Roles to a User Rule
+
+```js
+function (user, context, callback) {
+  user.app_metadata = user.app_metadata || {};
+  // You can add a Role based on what you want
+  var addRolesToUser = function(user, cb) {
+    if (user.email === 'adityaa803@gmail.com') {
+      cb(null, 'admin');
+    } else {
+      cb(null, 'writer');
+    }
+  };
+
+  addRolesToUser(user, function(err, role) {
+    if (err) {
+      callback(err);
+    } else {
+      user.app_metadata.role = role;
+      auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+        .then(function(){
+          context.idToken['https://itaditya/role'] = user.app_metadata.role;
+          callback(null, user, context);
+        })
+        .catch(function(err){
+          callback(err);
+        });
+    }
+  });
+}
+```
+
