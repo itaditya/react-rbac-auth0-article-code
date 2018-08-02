@@ -27,6 +27,11 @@ Next, set up an Auth0 Application so Auth0 can interface with the React app.
 3. In the **Settings** for your new Auth0 application app, add `http://localhost:3000/callback` to the **Allowed Callback URLs**.
 5. At the bottom of the **Settings** section, click "Show Advanced Settings". Choose the **OAuth** tab and verify that the **JsonWebToken Signature Algorithm** is set to "RS256".
 
+### Provide Credentials to React App
+
+1. Rename `auth0-variables.js.example` inside `src/constants/` to `auth0-variables.js`.
+1. Paste the auth0 credentials in `auth0-variables.js`.
+
 ## Development server
 
 ```
