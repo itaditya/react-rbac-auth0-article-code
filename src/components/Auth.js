@@ -19,11 +19,11 @@ class Auth extends Component {
       role: 'visitor'
     },
     accessToken: ''
-  }
+  };
 
   initiateLogin = () => {
     auth.authorize();
-  }
+  };
 
   logout = () => {
     this.setState({
@@ -33,7 +33,7 @@ class Auth extends Component {
       },
       accessToken: ''
     })
-  }
+  };
 
   handleAuthentication = () => {
     auth.parseHash((error, authResult) => {
@@ -45,7 +45,7 @@ class Auth extends Component {
 
       this.setSession(authResult);
     })
-  }
+  };
 
   setSession(authResult) {
     const { accessToken } = authResult;
@@ -58,15 +58,15 @@ class Auth extends Component {
           user: {
             role: 'visitor'
           }
-        })
+        });
         return;
       }
-      
+
       const user = {
         id: data.sub,
         email: data.email,
         role: data[AUTH_CONFIG.roleUrl]
-      }      
+      };
       this.setState({
         authenticated: true,
         accessToken,
@@ -81,7 +81,7 @@ class Auth extends Component {
       initiateLogin: this.initiateLogin,
       handleAuthentication: this.handleAuthentication,
       logout: this.logout
-    }
+    };
     return (
       <AuthProvider value={authProviderValue}>
         {this.props.children}

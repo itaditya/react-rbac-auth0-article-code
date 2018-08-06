@@ -29,8 +29,8 @@ const rules = {
       'dashboard-page:visit'
     ],
     dynamic: {
-      'posts:edit': ({ userId, postOwnerId }) => {
-        if(!userId || !postOwnerId) return false;
+      'posts:edit': ({userId, postOwnerId}) => {
+        if (!userId || !postOwnerId) return false;
         return userId === postOwnerId;
       }
     }

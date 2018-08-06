@@ -1,19 +1,19 @@
 import React from 'react';
 
 import posts from '../constants/posts';
-import { AuthConsumer } from '../authContext';
+import {AuthConsumer} from '../authContext';
 import Can from './Can';
 
 
 const PostsList = () => (
   <AuthConsumer>
-    {({ user }) => (
+    {({user}) => (
       <div>
         <h2>Posts List</h2>
         <ul>
           {posts.map(post => (
             <li key={post.id}>
-              {post.title}
+              <span>{post.title}</span>
               <Can
                 role={user.role}
                 perform='posts:edit'
@@ -38,6 +38,6 @@ const PostsList = () => (
       </div>
     )}
   </AuthConsumer>
-)
+);
 
 export default PostsList;

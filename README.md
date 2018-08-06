@@ -43,30 +43,21 @@ $ npm start
 ```js
 function (user, context, callback) {
   user.app_metadata = user.app_metadata || {};
-  // You can add a Role based on what you want
-  var addRolesToUser = function(user, cb) {
-    if (user.email === 'adityaa803@gmail.com') {
-      cb(null, 'admin');
-    } else {
-      cb(null, 'writer');
-    }
-  };
 
-  addRolesToUser(user, function(err, role) {
-    if (err) {
+  if (user.email === 'bruno.krebs@auth0.com') {
+    user.app_metadata.role = 'admin';
+  } else {
+    user.app_metadata.role = 'writer';
+  }
+
+  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+    .then(() => {
+      context.idToken['https://itaditya/role'] = user.app_metadata.role;
+      callback(null, user, context);
+    })
+    .catch((err) => {
       callback(err);
-    } else {
-      user.app_metadata.role = role;
-      auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
-        .then(function(){
-          context.idToken['https://itaditya/role'] = user.app_metadata.role;
-          callback(null, user, context);
-        })
-        .catch(function(err){
-          callback(err);
-        });
-    }
-  });
+    });
 }
 ```
 

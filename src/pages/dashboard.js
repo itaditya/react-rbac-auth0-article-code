@@ -1,32 +1,32 @@
 import React from 'react';
-import { Redirect } from "react-router-dom";
+import {Redirect} from 'react-router-dom';
 
-import { AuthConsumer } from '../authContext';
+import {AuthConsumer} from '../authContext';
 import Can from '../components/Can';
 import Logout from '../components/Logout';
 import Profile from '../components/Profile';
 import PostsList from '../components/PostsList';
 
-const DashboardPage = props => (
+const DashboardPage = () => (
   <AuthConsumer>
-    {({ user }) => (
+    {({user}) => (
       <Can
         role={user.role}
         perform='dashboard-page:visit'
         yes={() => (
           <div>
-            Dashboard
-            <Logout />
-            <Profile />
-            <PostsList />
+            <span>Dashboard</span>
+            <Logout/>
+            <Profile/>
+            <PostsList/>
           </div>
         )}
         no={() => (
-          <Redirect to="/" />
+          <Redirect to="/"/>
         )}
       />
     )}
   </AuthConsumer>
-)
+);
 
 export default DashboardPage;

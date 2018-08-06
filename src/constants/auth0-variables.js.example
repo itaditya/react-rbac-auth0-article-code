@@ -3,4 +3,4 @@ export const AUTH_CONFIG = {
   roleUrl: '',
   clientId: '',
   callbackUrl: ''
-}
+};

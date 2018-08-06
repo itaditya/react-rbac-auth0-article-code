@@ -1,2 +1,4 @@
 node_modules/
 src/constants/auth0-variables.js
+# webstorm files
+.idea/
