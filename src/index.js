@@ -9,7 +9,7 @@ import Auth from './components/Auth';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <Auth>
         <Router>
           <Switch>

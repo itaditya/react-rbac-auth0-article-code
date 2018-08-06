@@ -5,7 +5,7 @@
 const posts = [{
   id: 'a',
   title: 'Post a',
-  ownerId: 'auth0|5b638921750f272b79332a14'
+  ownerId: 'google-oauth2|100112663908880255058'
 }, {
   id: 'b',
   title: 'Post b',
@@ -13,7 +13,7 @@ const posts = [{
 }, {
   id: 'c',
   title: 'Post c',
-  ownerId: 'auth0|5b5f539d77737b5f5c5630db'
+  ownerId: 'auth0|5ad49bf13467830fef671233'
 }, {
   id: 'd',
   title: 'Post d',

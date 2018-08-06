@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 import { AuthConsumer } from '../authContext';
 
@@ -14,6 +14,6 @@ const Callback = props => (
       )
     }}
   </AuthConsumer>
-)
+);
 
 export default Callback;

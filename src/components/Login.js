@@ -8,6 +8,6 @@ const Login = () => (
       <button onClick={initiateLogin}>Login</button>
     )}
   </AuthConsumer>
-)
+);
 
 export default Login;
