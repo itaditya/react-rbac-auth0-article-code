@@ -4,7 +4,11 @@ import { AuthConsumer } from "../authContext";
 
 const Login = () => (
   <AuthConsumer>
-    {({ initiateLogin }) => <button onClick={initiateLogin}>Login</button>}
+    {({ initiateLogin }) => (
+      <button className="btn btn-sm btn-primary" onClick={initiateLogin}>
+        Login
+      </button>
+    )}
   </AuthConsumer>
 );
 

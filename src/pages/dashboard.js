@@ -15,7 +15,7 @@ const DashboardPage = () => (
         perform="dashboard-page:visit"
         yes={() => (
           <div>
-            <span>Dashboard</span>
+            <h1>Dashboard</h1>
             <Logout />
             <Profile />
             <PostsList />
