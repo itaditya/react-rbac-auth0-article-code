@@ -38,7 +38,7 @@ Next, set up an Auth0 Application so Auth0 can interface with the React app.
 $ npm start
 ```
 
-## Auth0 Set Roles to a User Rule
+## Auth0 Rule to Set Roles to a User
 
 ```js
 function (user, context, callback) {
@@ -60,4 +60,3 @@ function (user, context, callback) {
     });
 }
 ```
-

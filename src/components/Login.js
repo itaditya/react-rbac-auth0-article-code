@@ -1,12 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { AuthConsumer } from '../authContext';
+import { AuthConsumer } from "../authContext";
 
 const Login = () => (
   <AuthConsumer>
-    {({ initiateLogin }) => (
-      <button onClick={initiateLogin}>Login</button>
-    )}
+    {({ initiateLogin }) => <button onClick={initiateLogin}>Login</button>}
   </AuthConsumer>
 );
 

@@ -1,12 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import {AuthConsumer} from '../authContext';
+import { AuthConsumer } from "../authContext";
 
 const Logout = () => (
   <AuthConsumer>
-    {({logout}) => (
-      <button onClick={logout}>Logout</button>
-    )}
+    {({ logout }) => <button onClick={logout}>Logout</button>}
   </AuthConsumer>
 );
 

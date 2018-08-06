@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import HomePage from './pages/home';
-import DashboardPage from './pages/dashboard';
-import CallbackPage from './pages/callback';
-import Auth from './components/Auth';
+import HomePage from "./pages/home";
+import DashboardPage from "./pages/dashboard";
+import CallbackPage from "./pages/callback";
+import Auth from "./components/Auth";
 
 function App() {
   return (

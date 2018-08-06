@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import auth0 from 'auth0-js';
+import React, { Component } from "react";
+import auth0 from "auth0-js";
 
-import { AUTH_CONFIG } from '../constants/auth0-variables';
-import { AuthProvider } from '../authContext';
+import { AUTH_CONFIG } from "../constants/auth0-variables";
+import { AuthProvider } from "../authContext";
 
 const auth = new auth0.WebAuth({
   domain: AUTH_CONFIG.domain,
   clientID: AUTH_CONFIG.clientId,
   redirectUri: AUTH_CONFIG.callbackUrl,
   audience: `https://${AUTH_CONFIG.domain}/userinfo`,
-  responseType: 'token id_token'
+  responseType: "token id_token"
 });
 
 class Auth extends Component {
   state = {
     authenticated: false,
     user: {
-      role: 'visitor'
+      role: "visitor"
     },
-    accessToken: ''
+    accessToken: ""
   };
 
   initiateLogin = () => {
@@ -29,10 +29,10 @@ class Auth extends Component {
     this.setState({
       authenticated: false,
       user: {
-        role: 'visitor'
+        role: "visitor"
       },
-      accessToken: ''
-    })
+      accessToken: ""
+    });
   };
 
   handleAuthentication = () => {
@@ -44,19 +44,19 @@ class Auth extends Component {
       }
 
       this.setSession(authResult);
-    })
+    });
   };
 
   setSession(authResult) {
     const { accessToken } = authResult;
     auth.client.userInfo(accessToken, (error, data) => {
-      if(error) {
-        console.log('Error Occured', error);
+      if (error) {
+        console.log("Error Occured", error);
         this.setState({
           authenticated: false,
-          accessToken: '',
+          accessToken: "",
           user: {
-            role: 'visitor'
+            role: "visitor"
           }
         });
         return;
@@ -86,7 +86,7 @@ class Auth extends Component {
       <AuthProvider value={authProviderValue}>
         {this.props.children}
       </AuthProvider>
-    )
+    );
   }
 }
 

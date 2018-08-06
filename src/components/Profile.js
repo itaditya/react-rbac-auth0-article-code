@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import {AuthConsumer} from '../authContext';
+import { AuthConsumer } from "../authContext";
 
 const Profile = () => (
   <AuthConsumer>
-    {({user}) => (
+    {({ user }) => (
       <div>
         <h2>User Profile</h2>
         <ul>

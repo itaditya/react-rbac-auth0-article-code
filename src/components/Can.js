@@ -1,4 +1,4 @@
-import rules from '../constants/rbac-rules';
+import rules from "../constants/rbac-rules";
 
 const check = (rules, role, action, data) => {
   const permissions = rules[role];
@@ -27,7 +27,10 @@ const check = (rules, role, action, data) => {
   }
 };
 
-const Can = props => check(rules, props.role, props.perform, props.data) ? props.yes() : props.no();
+const Can = props =>
+  check(rules, props.role, props.perform, props.data)
+    ? props.yes()
+    : props.no();
 
 Can.defaultProps = {
   yes: () => null,

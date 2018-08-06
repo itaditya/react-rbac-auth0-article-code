@@ -1,29 +1,27 @@
-import React from 'react';
-import {Redirect} from 'react-router-dom';
+import React from "react";
+import { Redirect } from "react-router-dom";
 
-import {AuthConsumer} from '../authContext';
-import Can from '../components/Can';
-import Logout from '../components/Logout';
-import Profile from '../components/Profile';
-import PostsList from '../components/PostsList';
+import { AuthConsumer } from "../authContext";
+import Can from "../components/Can";
+import Logout from "../components/Logout";
+import Profile from "../components/Profile";
+import PostsList from "../components/PostsList";
 
 const DashboardPage = () => (
   <AuthConsumer>
-    {({user}) => (
+    {({ user }) => (
       <Can
         role={user.role}
-        perform='dashboard-page:visit'
+        perform="dashboard-page:visit"
         yes={() => (
           <div>
             <span>Dashboard</span>
-            <Logout/>
-            <Profile/>
-            <PostsList/>
+            <Logout />
+            <Profile />
+            <PostsList />
           </div>
         )}
-        no={() => (
-          <Redirect to="/"/>
-        )}
+        no={() => <Redirect to="/" />}
       />
     )}
   </AuthConsumer>

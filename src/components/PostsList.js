@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import posts from '../constants/posts';
-import {AuthConsumer} from '../authContext';
-import Can from './Can';
-
+import posts from "../constants/posts";
+import { AuthConsumer } from "../authContext";
+import Can from "./Can";
 
 const PostsList = () => (
   <AuthConsumer>
-    {({user}) => (
+    {({ user }) => (
       <div>
         <h2>Posts List</h2>
         <ul>
@@ -16,21 +15,17 @@ const PostsList = () => (
               <span>{post.title}</span>
               <Can
                 role={user.role}
-                perform='posts:edit'
+                perform="posts:edit"
                 data={{
                   userId: user.id,
                   postOwnerId: post.ownerId
                 }}
-                yes={() => (
-                  <button>Edit Post</button>
-                )}
+                yes={() => <button>Edit Post</button>}
               />
               <Can
                 role={user.role}
-                perform='posts:delete'
-                yes={() => (
-                  <button>Delete Post</button>
-                )}
+                perform="posts:delete"
+                yes={() => <button>Delete Post</button>}
               />
             </li>
           ))}
