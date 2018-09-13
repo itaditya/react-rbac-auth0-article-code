@@ -43,35 +43,20 @@ class Auth extends Component {
         return;
       }
 
-      this.setSession(authResult);
+      this.setSession(authResult.idTokenPayload);
     });
   };
 
-  setSession(authResult) {
-    const { accessToken } = authResult;
-    auth.client.userInfo(accessToken, (error, data) => {
-      if (error) {
-        console.log("Error Occured", error);
-        this.setState({
-          authenticated: false,
-          accessToken: "",
-          user: {
-            role: "visitor"
-          }
-        });
-        return;
-      }
-
-      const user = {
-        id: data.sub,
-        email: data.email,
-        role: data[AUTH_CONFIG.roleUrl]
-      };
-      this.setState({
-        authenticated: true,
-        accessToken,
-        user
-      });
+  setSession(data) {
+    const user = {
+      id: data.sub,
+      email: data.email,
+      role: data[AUTH_CONFIG.roleUrl]
+    };
+    this.setState({
+      authenticated: true,
+      accessToken: data.accessToken,
+      user
     });
   }
 
